@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * The Matrix class simulates an interactive dialogue with a user,
+ * inspired by the Matrix movie. It utilizes a typewriter effect
+ * for displaying text to the console.
+ */
 public class Matrix {
 
    private String name;
@@ -10,13 +15,21 @@ public class Matrix {
    public static final String ANSI_GREEN = "\u001B[32m";
    public static final String ANSI_RESET = "\u001B[0m";
 
-   //Constructor
+
+   /**
+     * Constructs a new Matrix object and initializes the scanner and name.
+     */
    public Matrix() {
     this.scanner = new Scanner(System.in);
     this.name = "";
    }
 
-   //Game logic
+   /**
+     * Starts the interactive dialogue with the user. The dialogue
+     * features multiple choices and displays text with a typewriter effect.
+     *
+     * @throws InterruptedException if the thread is interrupted during sleep.
+     */
    public void start() throws InterruptedException{
     System.out.println(ANSI_GREEN + "Operator:...Who is this? ");
     this.name = scanner.nextLine();
@@ -62,19 +75,19 @@ public class Matrix {
             simulateTypingEffect(ANSI_RED + "Morpheus: Welcome to the real world...",30);
         }
 
-
-
-
     } else {
         simulateTypingEffect("Morpheus: It seems you are not ready to know the truth yet.",7);
     }
-
-
-
-
    }
 
-   //Custom method that prints each letter one by one, creating a typewriter effect
+   /**
+     * Prints the given text to the console one character at a time,
+     * creating a typewriter effect.
+     *
+     * @param text  the text to display with the typewriter effect.
+     * @param speed the delay in milliseconds between each character.
+     * @throws InterruptedException if the thread is interrupted during sleep.
+     */
    public void simulateTypingEffect(String text, int speed) throws InterruptedException {
     for (int i = 0; i < text.length(); i++) {
         System.out.print(text.charAt(i));
@@ -84,11 +97,22 @@ public class Matrix {
 
    }
 
+   /**
+     * Pauses the execution for the specified amount of time.
+     *
+     * @param ms the delay time in milliseconds.
+     * @throws InterruptedException if the thread is interrupted during sleep.
+     */
    public void delay(int ms) throws InterruptedException {
     Thread.sleep(ms);
    }
 
 
+   /**
+     * The main method to start the Matrix game.
+     *
+     * @param args the command line arguments.
+     */
     public static void main(String[] args) {
         try {
             Matrix matrixGame = new Matrix();
@@ -97,7 +121,4 @@ public class Matrix {
             System.out.println("This line is not secure...");
         }
     }
-
-
-
 }
