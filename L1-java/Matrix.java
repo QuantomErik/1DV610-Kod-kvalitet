@@ -16,6 +16,7 @@ public class Matrix {
     this.name = "";
    }
 
+   //Game logic
    public void start() throws InterruptedException{
     System.out.println(ANSI_GREEN + "Operator:...Who is this? ");
     this.name = scanner.nextLine();
@@ -33,6 +34,34 @@ public class Matrix {
     } else {
         simulateTypingEffect("Morpheus: Interesting choice, but the truth remains elusive.");
         return;
+    }
+
+    System.out.println("1: The Matrix");
+    System.out.println("2: No");
+
+    String response2 = scanner.nextLine();
+
+    if (response2.equals("1")) {
+        simulateTypingEffect("Morpheus: The Matrix is everywhere, it is all around us. Even now, in this very room. You have to make a choice...");
+
+        simulateTypingEffect("You take the blue pill and the story ends. You wake in your bed and believe whatever you want to believe. You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes. Remember -- all I am offering is the truth, nothing more.");
+
+        System.out.println("1: Blue pill");
+        System.out.println("2: Red pill");
+
+        String pillChoise = scanner.nextLine();
+
+        if (!pillChoise.equals("2")) {
+        simulateTypingEffect("Morpheus: You wake up in your bed and belive whatever you want to believe.");
+        } else {
+            simulateTypingEffect(ANSI_RED + "Morpheus: Welcome to the real world...");
+        }
+
+
+
+
+    } else {
+        simulateTypingEffect("Morpheus: It seems you are not ready to know the truth yet.");
     }
 
 
