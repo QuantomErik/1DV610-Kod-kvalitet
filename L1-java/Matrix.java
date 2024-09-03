@@ -18,6 +18,18 @@ public class Matrix {
 
    public void start() throws InterruptedException{
     System.out.println(ANSI_GREEN + "Operator:...Who is this? ");
+    this.name = scanner.nextLine();
+
+
+   }
+
+   //Custom method that prints each letter one by one, creating a typewriter effect
+   public void simulateTypingEffect(String text) throws InterruptedException {
+    for (int i = 0; i < text.length(); i++) {
+        System.out.print(text.charAt(i));
+    }
+    System.out.println();
+
    }
 
 
